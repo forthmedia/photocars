@@ -12,3 +12,9 @@ The "front end" uses the jQuery AJAX API. The request requires a URL encoded Gro
 The JavaScript demonstrates how to unpack JSON encoded by PHP. It also shows how to assemble the data items from Flickr into a valid IMG SRC url.
 
 There is a Bootstrap JavaScript carousel component for the slide show, using info from Flick for the photos and captions.
+
+See a live version at:
+http://www.forth-media.com/photocars/
+
+See a JavaScript implementation of the Flickr JSON API at:
+https://github.com/forthmedia/phototravel
