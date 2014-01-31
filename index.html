@@ -55,6 +55,12 @@
 	
 	<style type="text/css">
 	
+	.title {
+		color: #FF9900;
+	}	
+	.jumbotron {
+		background: #FFDBA6;
+	}
 	.centered{
     	margin: 0 auto;
 	}
@@ -89,7 +95,21 @@
 	}
 
 	</style>
-	
+
+<!-- fm google analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-16854727-1']);
+  _gaq.push(['_setDomainName', '.forth-media.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
 </head>
 <body>
 
@@ -120,7 +140,7 @@
 	<div class="jumbotron">
 		<h2>Photo Cars</h2>
 		<p>A project with HTML5, CSS3, JavaScript, jQuery, AJAX, PHP, Bootstrap &amp; Responsive Web Design</p>
-		<a href="https://github.com/forthmedia/photocars" class="btn btn-success btn-lg">See the Code</a>
+		<a href="https://github.com/forthmedia/photocars" class="btn btn-warning btn-lg">See the Code</a>
 		<small class="help-block">Browse the source code on GitHub</small>
 	</div>
 </header>
@@ -128,19 +148,19 @@
 <article class="container">
 	<div class="row">
 		<div class="col-md-4">
-			<h3>The Project</h3>
+			<h3 class="title">The Project</h3>
 			<p>The pictures in this set are always changing. They are the 5 most recent uploads to   a live photo stream at Flicker called "Cars, Cars, and More Cars."</p>
 			<p>This project acesses a Flicker REST API via AJAX, using PHP on the "back end." One of the advantages of doing it that way is that the Api Key can be hidden in the server side script.</p>
 			<p>XML returned by the web service is converted to JSON for the "front end." This page uses jQuery to unpack the data and populate a Bootstrap Carousel.</p>
 		</div>
 		<div class="col-md-4">
-			<h3>Challenges</h3>
+			<h3 class="title">Challenges</h3>
 			<p>Since the height of the photos are not fixed, the height of the Carousel might change, causing the body text you are reading to jump up and down. This can be solved using CSS3.</p>
 			<p>This page uses Media Queries to fix the image heights for desktop, pad, and smartphone devices, in a responsive web design.</p>
 			<p>On a desktop, you can simulate this by diminishing the width of the browser window, and seeing the photos resize and the content reflow.</p>
 		</div>
 		<div class="col-md-4">
-			<h3>Gotcha's</h3>
+			<h3 class="title">Gotcha's</h3>
 			<p>Converting XML to JSON using built-in PHP functions presents its own challenges. PHP injects placeholders to ensure syntactically correct JSON.</p>
 			<p>Items can still be traversed using JavaScript "dot" syntax, but extracting the data from a name/value pair takes more doing. See the code on GitHub.</p>
 		</div>		
