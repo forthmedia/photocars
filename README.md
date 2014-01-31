@@ -3,7 +3,7 @@ photocars
 
 Access REST/XML Web service API & convert to JSON
 
-HTML, CSS, JavaScript, jQuery, AJAX, PHP, Bootstrap
+HTML5, CSS3, JavaScript, jQuery, AJAX, PHP, Bootstrap, Responsive Web Design
 
 This example gets 5 recent photos from Flicker and populates an interactive slide show. Using PHP on the "back end", it accesses the Flickr Rest Response Format, which returns XML, and converts the response to JSON. There is a PHP Class that implements XML to JSON conversion.
 
