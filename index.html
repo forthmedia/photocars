@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Photo Cars</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap mobile viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
@@ -20,20 +22,22 @@
 
 		$.getJSON('flickr/GetGroup.php?group=' + group_id, function( data ) {
 
+			console.log(data);
+			
 			if (data["@attributes"].stat == "ok") {
 
 				$.each(data.photos.photo, function(i, item){
 
-					//http://farm{farm}.staticflickr.com/{server}/{id}_{secret}_b.jpg
+					// Unpack response data from Flickr to assmble valid IMG SRC URL
 					var img_src = "http://farm" + item["@attributes"].farm
 						+ ".staticflickr.com/" + item["@attributes"].server
 						+ "/" + item["@attributes"].id + "_" + item["@attributes"].secret + "_b.jpg";
 
 					if ( i == 0 ) {
-						$('.carousel-inner').append('<div class="item active"><img class="centered" src="' + img_src
+						$('.carousel-inner').append('<div class="item active"><img class="centered img-responsive" src="' + img_src
 							+ '" /><div class="carousel-caption"><h3>' + item["@attributes"].title + '</h3></div></div>');
 					} else {
-						$('.carousel-inner').append('<div class="item"><img class="centered" src="' + img_src
+						$('.carousel-inner').append('<div class="item"><img class="centered img-responsive" src="' + img_src
 							+ '" /><div class="carousel-caption"><h3>' + item["@attributes"].title + '</h3></div></div>');
 					}
 
@@ -54,17 +58,42 @@
 	.centered{
     	margin: 0 auto;
 	}
-	.carousel .item {
-		height: 600px;
+	.carousel {
  		background-color: #888;
 	}
 
-	</style>
+	/* CSS3 Responsive Design Media Queries */
 
+	/* Zone 1: Extra small devices (smartphones less than 768px) */
+	@media screen and (max-width: 768px) {
+		.carousel .item {
+			min-height: 200px;
+			max-height: 200px;
+		}
+	}
+
+	/* Zone 2: Small devices (pads 768px and up ) */
+	@media screen and (min-width: 768px) {
+		.carousel .item {
+			min-height: 400px;
+			max-height: 400px;
+		}
+	}
+
+	/* Zone 3: Medium devices (desktops, 992px and up) */
+	@media screen and (min-width: 992px) {
+		.carousel .item {
+			min-height: 550px;
+			max-height: 550px;
+		}
+	}
+
+	</style>
+	
 </head>
 <body>
 
-<div id="carousel-flickr" class="carousel slide" data-ride="carousel" data-wrap="true">
+<section id="carousel-flickr" class="carousel slide" data-ride="carousel" data-wrap="true">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#carousel-flickr" data-slide-to="0" class="active"></li>
@@ -74,10 +103,8 @@
     <li data-target="#carousel-flickr" data-slide-to="4"></li>
   </ol>
 
-  <!-- Wrapper for 5 slides -->
+  <!-- jQuery target element for populating 5 photos and captions -->
   <div class="carousel-inner">
-
-
   </div>
 
   <!-- Controls -->
@@ -87,7 +114,41 @@
   <a class="right carousel-control" href="#carousel-flickr" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
-</div>
+</section>
 
+<header class="container-fluid">
+	<div class="jumbotron">
+		<h2>Photo Cars</h2>
+		<p>A project with HTML5, CSS3, JavaScript, jQuery, AJAX, PHP, Bootstrap &amp; Responsive Web Design</p>
+		<a href="https://github.com/forthmedia/photocars" class="btn btn-success btn-lg">See the Code</a>
+		<small class="help-block">Browse the source code on GitHub</small>
+	</div>
+</header>
+
+<article class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<h3>The Project</h3>
+			<p>The pictures in this set are always changing. They are the 5 most recent uploads to   a live photo stream at Flicker called "Cars, Cars, and More Cars."</p>
+			<p>This project acesses a Flicker REST API via AJAX, using PHP on the "back end." One of the advantages of doing it that way is that the Api Key can be hidden in the server side script.</p>
+			<p>XML returned by the web service is converted to JSON for the "front end." This page uses jQuery to unpack the data and populate a Bootstrap Carousel.</p>
+		</div>
+		<div class="col-md-4">
+			<h3>Challenges</h3>
+			<p>Since the height of the photos are not fixed, the height of the Carousel might change, causing the body text you are reading to jump up and down. This can be solved using CSS3.</p>
+			<p>This page uses Media Queries to fix the image heights for desktop, pad, and smartphone devices, in a responsive web design.</p>
+			<p>On a desktop, you can simulate this by diminishing the width of the browser window, and seeing the photos resize and the content reflow.</p>
+		</div>
+		<div class="col-md-4">
+			<h3>Gotcha's</h3>
+			<p>Converting XML to JSON using built-in PHP functions presents its own challenges. PHP injects placeholders to ensure syntactically correct JSON.</p>
+			<p>Items can still be traversed using JavaScript "dot" syntax, but extracting the data from a name/value pair takes more doing. See the code on GitHub.</p>
+		</div>		
+	</div>
+</article>
+
+<hr>
+
+<footer class="container">Kurt Jonach @Forthmedia</footer>
 </body>
 </html>
