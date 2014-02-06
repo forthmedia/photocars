@@ -22,9 +22,10 @@
 
 		var group_id = "563598@N22"; // Flickr groups/cars1/
 
+	    $('.carousel-inner').addClass("loading");
 		$.getJSON('flickr/GetGroup.php?group=' + group_id, function( data ) {
 
-			console.log(data);
+      		$('.carousel-inner').removeClass("loading");
 			
 			if (data["@attributes"].stat == "ok") {
 
@@ -57,6 +58,11 @@
 	
 	<style type="text/css">
 	
+	.loading {
+		background-image: url("img/loader.gif");
+		background-repeat: no-repeat;
+		background-position: center;
+	}
 	.title {
 		color: #FF9900;
 	}	
@@ -68,7 +74,7 @@
 		color: #996633;
 	}
 	.carousel {
- 		background-color: #888;
+ 		background-color: #AAA;
 	}
 	.carousel-inner > .item > img {
 		margin: 0 auto;
@@ -89,6 +95,9 @@
 			min-height: 200px;
 			max-height: 200px
 		}
+    	.loading {
+      		height: 200px;
+    	}
 	}
 
 	/* Zone 2: Small devices (pads 768px and up ) */
@@ -101,6 +110,9 @@
 			min-height: 400px;
 			max-height: 400px
 		}
+    	.loading {
+      		height: 400px;
+    	}
 	}
 
 	/* Zone 3: Medium devices (desktops, 992px and up) */
@@ -113,6 +125,9 @@
 			min-height: 550px;
 			max-height: 550px;
 		}
+    	.loading {
+      		height: 550px;
+    	}
 	}
 
 	</style>
@@ -147,7 +162,7 @@
 	<div class="jumbotron">
 		<h2>Photo Cars</h2>
 		<p>A project with HTML5, CSS3, JavaScript, jQuery, AJAX, PHP, Bootstrap &amp; Responsive Web Design</p>
-		<a href="https://github.com/forthmedia/photocars" class="btn btn-warning btn-lg">See the Code</a>
+		<a href="https://github.com/forthmedia/photocars/" class="btn btn-warning btn-lg">See the Code</a>
 		<small class="help-block">Browse the source code on GitHub</small>
 	</div>
 </header>
