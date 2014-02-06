@@ -23,6 +23,7 @@
 		var group_id = "563598@N22"; // Flickr groups/cars1/
 
 		$('.carousel-inner').addClass("loading");
+		
 		$.getJSON('flickr/GetGroup.php?group=' + group_id, function( data ) {
 
 			$('.carousel-inner').removeClass("loading");
