@@ -22,10 +22,10 @@
 
 		var group_id = "563598@N22"; // Flickr groups/cars1/
 
-	    $('.carousel-inner').addClass("loading");
+		$('.carousel-inner').addClass("loading");
 		$.getJSON('flickr/GetGroup.php?group=' + group_id, function( data ) {
 
-      		$('.carousel-inner').removeClass("loading");
+			$('.carousel-inner').removeClass("loading");
 			
 			if (data["@attributes"].stat == "ok") {
 
@@ -95,9 +95,9 @@
 			min-height: 200px;
 			max-height: 200px
 		}
-    	.loading {
-      		height: 200px;
-    	}
+		.loading {
+			height: 200px;
+		}
 	}
 
 	/* Zone 2: Small devices (pads 768px and up ) */
@@ -110,9 +110,9 @@
 			min-height: 400px;
 			max-height: 400px
 		}
-    	.loading {
-      		height: 400px;
-    	}
+		.loading {
+			height: 400px;
+		}
 	}
 
 	/* Zone 3: Medium devices (desktops, 992px and up) */
@@ -125,9 +125,9 @@
 			min-height: 550px;
 			max-height: 550px;
 		}
-    	.loading {
-      		height: 550px;
-    	}
+		.loading {
+			height: 550px;
+		}
 	}
 
 	</style>
