@@ -22,5 +22,5 @@ PHP injects placeholders to ensure syntactically correct JSON. Items can still b
 See a live version at:
 http://www.forth-media.com/photocars/
 
-See a JavaScript implementation of the Flickr JSON API at:
+See a project driven by an Object-Oriented JavaScript class at:
 https://github.com/forthmedia/phototravel
